@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'rest_framework',
     
     "django_filters",
+    
+    # OpenAPI
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -144,5 +147,27 @@ REST_FRAMEWORK = {
         "rest_framework.filters.OrderingFilter",
         "rest_framework.filters.SearchFilter",
     ),
+    
+    
+    "DEFAULT_THROTTLE_CLASSES":(
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+    ),
+    
+    "DEFAULT_THROTTLE_RATES":{
+        "anon": "15/hour",
+        "user": "45/hour",
+        "livros":"20/hour",
+    },
+    
+    "DEFAULT_SCHEMA_CLASS":
+    "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Biblioteca Back-end API",
+    "DESCRIPTION": "Sistema de gerenciamento de biblioteca que permite a administração de livros, autores e categorias",
+    "VERSION":"1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False
 }
 

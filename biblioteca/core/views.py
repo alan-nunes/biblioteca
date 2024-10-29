@@ -11,8 +11,13 @@ from rest_framework import generics
 
 from .filters import LivroFilter
 
+from rest_framework.throttling import ScopedRateThrottle
+
 # Create your views here.
 class LivroList(generics.ListCreateAPIView):
+    throttle_scope = "livros"
+    throttle_classes = (ScopedRateThrottle,)
+    
     queryset = Livro.objects.all()
     serializer_class = LivroSerializer
     filterset_class = LivroFilter
@@ -21,6 +26,9 @@ class LivroList(generics.ListCreateAPIView):
     name = "livro-list"
 
 class LivroDetail(generics.RetrieveUpdateDestroyAPIView):
+    throttle_scope = "livros"
+    throttle_classes = (ScopedRateThrottle,)
+    
     queryset = Livro.objects.all()
     serializer_class = LivroSerializer
     name = "livro-detail"
