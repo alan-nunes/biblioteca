@@ -30,11 +30,10 @@ Além disso, o sistema deve oferecer recursos de paginação, ordenação e busc
 
 ## Instalação
 
-### Passo 1: Clonar o repositório (LINK FICTÍCIO)
+### Passo 1: Clonar o repositório
 
 ```bash
-git clone https://github.com/TRILHA7/ATIVIDADE_PRATICA_II
-cd ATIVIDADE_PRATICA_II
+git clone https://github.com/alan-nunes/biblioteca.git
 ```
 
 ### Passo 2: Criar um ambiente virtual
