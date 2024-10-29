@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     
     # OpenAPI
     "drf_spectacular",
+    
+    "rest_framework.authtoken",
 ]
 
 MIDDLEWARE = [
@@ -148,6 +150,10 @@ REST_FRAMEWORK = {
         "rest_framework.filters.SearchFilter",
     ),
     
+    "DEFAULT_AUTHENTICATION_CLASSES":(
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ),
     
     "DEFAULT_THROTTLE_CLASSES":(
         "rest_framework.throttling.AnonRateThrottle",

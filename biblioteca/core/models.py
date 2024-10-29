@@ -16,6 +16,11 @@ class Livro(models.Model):
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     publicado_em = models.DateField()
+    
+    owner = models.ForeignKey("auth.User", related_name="livros", on_delete=models.CASCADE )
+    class Meta:
+        ordering = ("titulo",)
+    
     def __str__(self):
         return self.titulo
   

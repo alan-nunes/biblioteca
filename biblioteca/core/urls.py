@@ -1,6 +1,10 @@
 from django.urls import path
 from . import views
 
+from rest_framework.routers import SimpleRouter
+
+router = SimpleRouter()
+
 urlpatterns = [
     path('livros/', views.LivroList.as_view(), name='livros-list'),
     path('livros/<int:pk>/', views.LivroDetail.as_view(), name='livro-detail'),
