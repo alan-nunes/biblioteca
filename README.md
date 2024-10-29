@@ -5,7 +5,7 @@ Ele deve permitir a administração de livros, autores e categorias, com funcion
 Além disso, o sistema deve oferecer recursos de paginação, ordenação e busca de registros utilizando Django, Django Rest Framework e Django Filter.
 
 ## Desenvolvido por:
-- Ala Nunes
+- Alan Nunes
 
 ## Funcionalidades
 
