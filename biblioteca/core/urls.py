@@ -1,17 +1,19 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 from rest_framework.routers import SimpleRouter
 
-router = SimpleRouter()
+app_name = 'api'
 
+#router = SimpleRouter()
 urlpatterns = [
-    path('livros/', views.LivroList.as_view(), name='livros-list'),
-    path('livros/<int:pk>/', views.LivroDetail.as_view(), name='livro-detail'),
     
-    path('autores/', views.AutorList.as_view(), name='autor-list'),
-    path('autores/<int:pk>/', views.AutorDetail.as_view(), name='autor-detail'),
+    path("livros/", views.LivroList.as_view(), name="livro-list"),
+    path('livros/<int:pk>/', views.LivroDetail.as_view(), name=views.LivroDetail.name),
+    
+    path("autores/", views.AutorList.as_view(), name="autor-list"),
+    path("autor/<int:pk>/", views.AutorDetail.as_view, name="autor-list"),
     
     path("categorias/", views.CategoriaList.as_view(), name="categoria-list"),
-    path("categorias/<int:pk>/", views.CategoriaDetail.as_view(), name="categoria-detail"),
+    path("categoria/<int:pk>/", views.CategoriaDetail.as_view(), name="categoria-detail"),
 ]

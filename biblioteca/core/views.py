@@ -1,8 +1,6 @@
 from .serializers import LivroSerializer, AutorSerializer, CategoriaSerializer
 from .models import Autor,  Categoria, Livro
 
-from rest_framework import generics
-
 from .filters import LivroFilter
 
 from rest_framework.throttling import ScopedRateThrottle
@@ -13,7 +11,14 @@ from core import custom_permissions
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
+from rest_framework import viewsets
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
+
 # Create your views here.
+
+        
 class LivroList(generics.ListCreateAPIView):
     throttle_scope = "livros"
     throttle_classes = (ScopedRateThrottle,)
