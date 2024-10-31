@@ -96,56 +96,56 @@ A aplicação estará disponível no navegador no endereço [http://127.0.0.1:80
 
 - **Listar livros (com paginação e ordenação):**
   ```
-  GET /livros/?limit=<limite>&offset=<deslocamento>&ordering=<campo>
+  GET /api/livros/?limit=<limite>&offset=<deslocamento>&ordering=<campo>
   ```
 
 - **Buscar livros por título, autor ou categoria:**
   ```
-  GET /livros/?titulo=<termo>&autor=<termo>&categoria=<termo>
+  GET /api/livros/?titulo=<termo>&autor=<termo>&categoria=<termo>
   ```
 
 - **Criar um novo livro:**
   ```
-  POST /livros/
+  POST /api/livros/
   ```
 
 - **Obter detalhes de um livro específico:**
   ```
-  GET /livros/<id>/
+  GET /api/livros/<id>/
   ```
 
 - **Atualizar um livro:**
   ```
-  PUT /livros/<id>/
+  PUT /api/livros/<id>/
   ```
 
 - **Excluir um livro:**
   ```
-  DELETE /livros/<id>/
+  DELETE /api/livros/<id>/
   ```
 
 ### Autores
 
 - **Listar autores:**
   ```
-  GET /autores/
+  GET /api/autores/
   ```
 
 - **Criar um novo autor:**
   ```
-  POST /autores/
+  POST /api/autores/
   ```
 
 ### Categorias
 
 - **Listar categorias:**
   ```
-  GET /categorias/
+  GET /api/categorias/
   ```
 
 - **Criar uma nova categoria:**
   ```
-  POST /categorias/
+  POST /api/categorias/
   ```
 
 ## Contribuindo
