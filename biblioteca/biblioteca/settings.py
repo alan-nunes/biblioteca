@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-0i@h_ews^0om^n!wx+aktz32dhwxo_ye4(dn@v62xs6y$!pn+5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',  # localhost
+    '192.168.100.12',  # IP local
+    '0.0.0.0',
+    'localhost',
+]
 
 
 # Application definition
@@ -49,6 +54,8 @@ INSTALLED_APPS = [
     "drf_spectacular",
     
     "rest_framework.authtoken",
+    
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -59,6 +66,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    'corsheaders.middleware.CorsMiddleware', 
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'biblioteca.urls'
@@ -166,8 +176,11 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "Biblioteca Back-end API",
-    "DESCRIPTION": "Sistema de gerenciamento de biblioteca que permite a administração de livros, autores e categorias",
+    "DESCRIPTION": "Sistema de gerenciamento de biblioteca que permite a administração de livros, autores, categorias e coleções",
     "VERSION":"1.0.0",
     "SERVE_INCLUDE_SCHEMA": False
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "http://192.168.100.12",
+]

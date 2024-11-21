@@ -1,5 +1,5 @@
-from .serializers import LivroSerializer, AutorSerializer, CategoriaSerializer
-from .models import Autor,  Categoria, Livro
+from .serializers import LivroSerializer, AutorSerializer, CategoriaSerializer, ColecaoSerializer
+from .models import Autor,  Categoria, Livro, Colecao
 
 from .filters import LivroFilter
 
@@ -12,9 +12,12 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
 from rest_framework import viewsets
-from rest_framework import generics
+from rest_framework import generics, permissions
+
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+
+from . import custom_permissions
 
 # Create your views here.
 
@@ -78,3 +81,27 @@ class CategoriaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
     name = "categoria-detail"
+    
+class ColecaoListCreate(generics.ListCreateAPIView):
+    #queryset = Colecao.objects.all()
+    def get_queryset(self):
+        return Colecao.objects.filter(colecionador=self.request.user)
+    
+    serializer_class = ColecaoSerializer
+    name = "colecao-list"
+    
+    permission_classes = (
+        permissions.IsAuthenticated,    # Apenas usuários autenticados podem listar e criar coleções
+        custom_permissions.IsCurrentUserOwnerOrReadOnly,    # Permissão personalizada para edição
+    )
+    
+    
+class ColecaoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Colecao.objects.all()
+    serializer_class = ColecaoSerializer
+    name = "colecao-detail"
+    
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        custom_permissions.IsCurrentUserOwnerOrReadOnly,
+    )

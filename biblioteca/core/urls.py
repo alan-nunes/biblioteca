@@ -16,4 +16,7 @@ urlpatterns = [
     
     path("categorias/", views.CategoriaList.as_view(), name="categoria-list"),
     path("categoria/<int:pk>/", views.CategoriaDetail.as_view(), name="categoria-detail"),
+    
+    path("colecao/", views.ColecaoListCreate.as_view(), name="colecao-list"),
+    path("colecao/<int:pk>/", views.ColecaoDetail.as_view(), name="colecao-detail"),
 ]
