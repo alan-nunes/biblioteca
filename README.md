@@ -1,7 +1,7 @@
 # Sistema de Gerenciamento de Biblioteca
 
 Este é um sistema de gerenciamento de biblioteca desenvolvido como parte da Trilha 7 - Desenvolvimento Back-End (Python) do programa Residência em TIC36. 
-Ele deve permitir a administração de livros, autores e categorias, com funcionalidades como listagem, criação, edição e exclusão de registros. 
+Ele deve permitir a administração de livros, autores, categorias e coleção, com funcionalidades como listagem, criação, edição e exclusão de registros. 
 Além disso, o sistema deve oferecer recursos de paginação, ordenação e busca de registros utilizando Django, Django Rest Framework e Django Filter.
 
 ## Desenvolvido por:
@@ -9,7 +9,7 @@ Além disso, o sistema deve oferecer recursos de paginação, ordenação e busc
 
 ## Funcionalidades
 
-- **Administração de Livros, Autores e Categorias**: Listar, criar, editar e excluir livros, autores e categorias.
+- **Administração de Livros, Autores, Categorias e Coleção**: Listar, criar, editar e excluir livros, autores e categorias.
 - **Paginação**: Listagem de resultados com paginação (limite e offset).
 - **Ordenação**: Ordenação dos registros por atributos específicos, como título e autor.
 - **Busca**: Busca de registros por título, autor ou categoria.
